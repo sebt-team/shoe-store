@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= circle_img @shoe.picture.url(:medium) %>
+</p>
+
+
+<p>
   <strong>Model:</strong>
   <%= @shoe.model %>
 </p>
 
 <p>
   <strong>Brand:</strong>
-  <%= @shoe.brand %>
+  <%= @shoe.brand.name %>
 </p>
 
 <p>

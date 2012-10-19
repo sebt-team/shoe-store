@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :brand %>
-    <%= form.text_field :brand, id: :shoe_brand %>
+    <%= form.collection_select(:brand_id, Brand.all, :id, :name) %>
   </div>
 
   <div class="field">
@@ -34,6 +34,10 @@
   <div class="field">
     <%= form.label :sku %>
     <%= form.number_field :sku, id: :shoe_sku %>
+  </div>
+
+  <div class="field">
+    <%= form.file_field :picture %>
   </div>
 
   <div class="actions">
