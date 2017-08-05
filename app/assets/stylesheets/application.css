@@ -15,4 +15,5 @@
  *= require theme
  *= require material_icons
  *= require 'material-design-lite/material.min.css'
+ *= require_tree .
  */

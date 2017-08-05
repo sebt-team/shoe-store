@@ -136,6 +136,9 @@ es:
   helpers:
     select:
       prompt: Por favor seleccione
+    form:  
+      create: Crear
+      edit: Editar
     submit:
       create: Crear %{model}
       submit: Guardar %{model}

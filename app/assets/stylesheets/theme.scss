@@ -12,3 +12,15 @@
   right: 20px;
   top: 25px;
 }
+
+.mdl-textfield__custom-error {
+  border-color: #d50000;
+}
+
+form span.mdl-textfield__message-error {
+    color: #d50000;
+    position: absolute;
+    font-size: 10px;
+    margin-top: 3px;
+    display: block;
+}
