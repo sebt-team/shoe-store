@@ -11,8 +11,13 @@
         <%= attribute_shoe 'Y', :release_year, @shoe.release_year %><br>
         <%= attribute_shoe 'S', :sku, @shoe.sku %><br>
         <br><br>
-        <%= link_to 'Edit', edit_shoe_path(@shoe) %> | <%= link_to 'Back', shoes_path %>
+        <div class="shoes__show_photo"><!-- Ugly but faster -->
+          <%= image_tag(@shoe.photo_url.to_s, size: "200x200") %>  
+          <p class="shoes__photo_description"> <%= "#{@shoe.brand} - #{@shoe.model}" %></p>          
+        </div>
       </div>
     </div>  
+    <br>
+    <%= link_to 'Edit', edit_shoe_path(@shoe) %> | <%= link_to 'Back', shoes_path %>
   </div>    
 </div>

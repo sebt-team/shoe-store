@@ -12,6 +12,15 @@ class MyMdlFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
   
+  def file_field(attribute, args)
+    @template.content_tag(:div, { class: 'mdl-textfield mdl-js-textfield mdl-textfield--file' }) do
+      @template.text_field_tag(:file, nil, {class: 'mdl-textfield__input', id: 'uploadFile', placeholder: 'Photo', readonly: true}) +
+      @template.content_tag(:div, class: 'mdl-button mdl-button--primary mdl-button--icon mdl-button--file') do
+        @template.content_tag(:i, 'attach_file',class: 'material-icons') + super(attribute,args.merge({id: 'uploadBtn'}))
+      end
+    end
+  end
+  
   private 
   def generic_field(attribute, args)
     field_wrapper do
@@ -25,6 +34,15 @@ class MyMdlFormBuilder < ActionView::Helpers::FormBuilder
       block.call
     end
   end
+  
+  def file_field_wrapper
+    @template.content_tag(:div, { class: 'mdl-textfield mdl-js-textfield mdl-textfield--file' }) do
+      block.call
+    end
+  end
+  
+
+  
   
   def span_error(attribute)
     if @object.errors[attribute].present?
