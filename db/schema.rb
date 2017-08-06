@@ -10,11 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170805224815) do
+ActiveRecord::Schema.define(version: 20170806040641) do
+
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "shoes", force: :cascade do |t|
     t.string "model"
-    t.string "brand"
     t.string "isbn"
     t.string "sku"
     t.integer "release_year"
@@ -22,6 +27,8 @@ ActiveRecord::Schema.define(version: 20170805224815) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+    t.integer "brand_id"
+    t.index ["brand_id"], name: "index_shoes_on_brand_id"
   end
 
 end
