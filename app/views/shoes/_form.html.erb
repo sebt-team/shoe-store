@@ -1,6 +1,6 @@
 <%= form_with(model: shoe, local: true, :builder => MyMdlFormBuilder) do |form| %>
   <%= form.text_field :model, id: :shoe_model %>
-  <%= form.text_field :brand, id: :shoe_brand %>
+  <%= form.select_belongs_to :shoe, :brand, :name %>
   <%= form.text_field :isbn, id: :shoe_isbn %>
   <%= form.number_field :release_year, id: :shoe_release_year %>
   <%= form.number_field :sku, id: :shoe_sku %>
