@@ -4,7 +4,12 @@
   <%= form.text_field :isbn, id: :shoe_isbn %>
   <%= form.number_field :release_year, id: :shoe_release_year %>
   <%= form.number_field :sku, id: :shoe_sku %>
-  <%= form.file_field :photo, id: :shoe_photo %>
+  <% if shoe.photo? %>
+    <%= image_tag(shoe.photo_url(:thumb).to_s) %>
+    <%= form.check_box :remove_photo %> Remove picture
+  <% else %>
+    <%= form.file_field :photo, id: :shoe_photo %> 
+  <% end %>
   <br><br>
   <button type='submit' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Save</button>
 <% end %>
