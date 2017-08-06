@@ -6,14 +6,14 @@
       </div>
       <div class="mdl-card__supporting-text">
         <%= attribute_shoe 'M', :model, @shoe.model %><br>
-        <%= attribute_shoe 'B', :brand, @shoe.brand %><br>
+        <%= attribute_shoe 'B', :brand, @shoe.brand.name %><br>
         <%= attribute_shoe 'I', :isbn, @shoe.isbn %><br>
         <%= attribute_shoe 'Y', :release_year, @shoe.release_year %><br>
         <%= attribute_shoe 'S', :sku, @shoe.sku %><br>
         <br><br>
         <div class="shoes__show_photo"><!-- Ugly but faster -->
           <%= image_tag(@shoe.photo_url.to_s, size: "200x200") %>  
-          <p class="shoes__photo_description"> <%= "#{@shoe.brand} - #{@shoe.model}" %></p>          
+          <p class="shoes__photo_description"> <%= "#{@shoe.brand.name} - #{@shoe.model}" %></p>          
         </div>
       </div>
     </div>  
