@@ -8,6 +8,7 @@ es:
         model: Modelo
         brand: Marca
         release_year: Año Lanzamiento
+        photo: Foto
   date:
     abbr_day_names:
     - dom

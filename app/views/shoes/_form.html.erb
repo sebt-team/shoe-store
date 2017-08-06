@@ -4,8 +4,7 @@
   <%= form.text_field :isbn, id: :shoe_isbn %>
   <%= form.number_field :release_year, id: :shoe_release_year %>
   <%= form.number_field :sku, id: :shoe_sku %>
-  <!-- Accent-colored raised button with ripple -->
-  <br>
-  <br>
+  <%= form.file_field :photo, id: :shoe_photo %>
+  <br><br>
   <button type='submit' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Save</button>
 <% end %>

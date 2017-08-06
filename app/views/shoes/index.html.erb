@@ -19,6 +19,7 @@
           <th class="mdl-data-table__cell--non-numeric">Isbn</th>
           <th class="mdl-data-table__cell--non-numeric"><%= i18n.t :release_year %></th>
           <th class="mdl-data-table__cell--non-numeric">SKU</th>
+          <th class="mdl-data-table__cell--non-numeric"><%= i18n.t :photo %></th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -31,6 +32,8 @@
           <td class="mdl-data-table__cell--non-numeric"><%= shoe.isbn %></td>
           <td class="mdl-data-table__cell--non-numeric"><%= shoe.release_year %></td>
           <td class="mdl-data-table__cell--non-numeric"><%= shoe.sku %></td>
+          <td class="mdl-data-table__cell--non-numeric"><%= image_tag(shoe.photo_url(:thumb).to_s) %></td>
+          
           <td class="mdl-data-table__cell--non-numeric">
             <%= link_to content_tag('i','visibility', class: 'material-icons'), shoe %>
           </td>
