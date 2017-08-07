@@ -11,28 +11,28 @@
     <% end %>
     
     <% I18n.with_options(scope: 'activerecord.attributes.shoe') do |i18n| %>
-    <table id="test_table" class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
+    <table id="shoes_list_table" class="mdl-data-table" cellspacing="0" width="100%">
       <thead>
         <tr>
-          <th class="mdl-data-table__cell--non-numeric"><%= i18n.t :model %></th>
-          <th class="mdl-data-table__cell--non-numeric"><%= i18n.t :brand %></th>
-          <th class="mdl-data-table__cell--non-numeric">Isbn</th>
-          <th class="mdl-data-table__cell--non-numeric"><%= i18n.t :release_year %></th>
-          <th class="mdl-data-table__cell--non-numeric">SKU</th>
-          <th class="mdl-data-table__cell--non-numeric"><%= i18n.t :photo %></th>
-          <th></th>
+          <th><%= i18n.t :model %></th>
+          <th><%= i18n.t :brand %></th>
+          <th>Isbn</th>
+          <th><%= i18n.t :release_year %></th>
+          <th>SKU</th>
+          <th><%= i18n.t :photo %></th>
+          <th>OPTIONS</th>
         </tr>
       </thead>      
       <tbody>
         <% @shoes.each do |shoe| %>
         <tr>
-          <td class="mdl-data-table__cell--non-numeric"><%= shoe.model %></td>
-          <td class="mdl-data-table__cell--non-numeric"><%= shoe.brand.name %></td>
-          <td class="mdl-data-table__cell--non-numeric"><%= shoe.isbn %></td>
-          <td class="mdl-data-table__cell--non-numeric"><%= shoe.release_year %></td>
-          <td class="mdl-data-table__cell--non-numeric"><%= shoe.sku %></td>
-          <td class="mdl-data-table__cell--non-numeric"><%= image_tag(shoe.photo_url(:thumb).to_s) %></td>
-          <td class="mdl-data-table__cell--non-numeric">
+          <td><%= shoe.model %></td>
+          <td><%= shoe.brand.name %></td>
+          <td><%= shoe.isbn %></td>
+          <td><%= shoe.release_year %></td>
+          <td><%= shoe.sku %></td>
+          <td><%= image_tag(shoe.photo_url(:thumb).to_s) %></td>
+          <td>
             <%= link_to content_tag('i','visibility', class: 'material-icons'), shoe %>
             <%= link_to content_tag('i','edit', class: 'material-icons'), edit_shoe_path(shoe) %>
             <%= link_to content_tag('i','delete', class: 'material-icons'), shoe, method: :delete, data: { confirm: 'Are you sure?' } %>

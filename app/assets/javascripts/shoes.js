@@ -6,11 +6,10 @@ document.onreadystatechange = () => {
     document.getElementById("uploadBtn").onchange = function () {
       document.getElementById("uploadFile").value = this.files[0].name;
     };
-    //$('#shoes_list_table').DataTable();
-    
   }
 };
 
 $(document).ready(function() {
-  $('#test_table').DataTable();  
+  
+  $('#shoes_list_table').DataTable();  
 } );
