@@ -1,29 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="mdl-cell">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Model:</strong>
-  <%= @shoe.model %>
-</p>
+  <p>
+    <strong>Model:</strong>
+    <%= @shoe.model %>
+  </p>
 
-<p>
-  <strong>Brand:</strong>
-  <%= @shoe.brand %>
-</p>
+  <p>
+    <strong>Brand:</strong>
+    <%= @shoe.brand %>
+  </p>
 
-<p>
-  <strong>Isbn:</strong>
-  <%= @shoe.isbn %>
-</p>
+  <p>
+    <strong>Isbn:</strong>
+    <%= @shoe.isbn %>
+  </p>
 
-<p>
-  <strong>Release year:</strong>
-  <%= @shoe.release_year %>
-</p>
+  <p>
+    <strong>Release year:</strong>
+    <%= @shoe.release_year %>
+  </p>
 
-<p>
-  <strong>Sku:</strong>
-  <%= @shoe.sku %>
-</p>
+  <p>
+    <strong>Sku:</strong>
+    <%= @shoe.sku %>
+  </p>
 
-<%= link_to 'Edit', edit_shoe_path(@shoe) %> |
-<%= link_to 'Back', shoes_path %>
+  <%= link_to t('form.edit_shoe'), edit_shoe_path(@shoe), class: 'md-cell mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
+  <%= link_to t('form.backto_list'), shoes_path, class: 'md-cell mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
+</div>
