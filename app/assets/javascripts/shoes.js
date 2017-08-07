@@ -8,3 +8,8 @@ document.onreadystatechange = () => {
     };
   }
 };
+
+$(document).ready(function() {
+  
+  $('#shoes_list_table').DataTable();  
+} );
