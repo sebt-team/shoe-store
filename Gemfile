@@ -34,7 +34,11 @@ gem 'jbuilder', '~> 2.5'
 # A simple Rails wrapper for Google Material Icons
 gem 'material_icons'
 gem 'carrierwave'
+gem 'carrierwave-base64'
 gem 'mini_magick'
+
+# For REST APIs
+gem 'rack-cors', require: 'rack/cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
