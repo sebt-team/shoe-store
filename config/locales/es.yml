@@ -1,5 +1,10 @@
 # basado en https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/es-CL.yml
 es:
+  form:
+    create_shoe: Crear zapatilla
+    edit_shoe: Editar zapatilla
+    show_shoe: Mostrar zapatilla
+    backto_list: Volver al listado
   activerecord:
     models:
       shoe: Zapatillas
