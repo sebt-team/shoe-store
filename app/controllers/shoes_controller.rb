@@ -22,33 +22,26 @@ class ShoesController < ApplicationController
   # POST /shoes
   def create
     @shoe = Shoe.new(shoe_params)
-
-    respond_to do |format|
-      if @shoe.save
-        format.html { redirect_to @shoe, notice: 'Shoe was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    if @shoe.save
+      redirect_to @shoe, notice: 'Shoe was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /shoes/1
   def update
-    respond_to do |format|
-      if @shoe.update(shoe_params)
-        format.html { redirect_to @shoe, notice: 'Shoe was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
-    end
+    if @shoe.update(shoe_params)
+       redirect_to @shoe, notice: 'Shoe was successfully updated.'
+    else
+      render :edit
+    end    
   end
 
   # DELETE /shoes/1
   def destroy
     @shoe.destroy
-    respond_to do |format|
-      format.html { redirect_to shoes_url, notice: 'Shoe was successfully destroyed.' }
-    end
+    redirect_to shoes_url, notice: 'Shoe was successfully destroyed.'
   end
 
   private

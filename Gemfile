@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # A simple Rails wrapper for Google Material Icons
 gem 'material_icons'
 gem 'carrierwave'
+gem 'carrierwave-base64'
 gem 'mini_magick'
 
 # For REST APIs
