@@ -1,42 +1,46 @@
-<%= form_with(model: shoe, local: true) do |form| %>
-  <% if shoe.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(shoe.errors.count, "error") %> prohibited this shoe from being saved:</h2>
+<div class="mdl-cell mdl-cell--12-col">
 
-      <ul>
-      <% shoe.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <%= form_with(model: shoe, local: true) do |form| %>
+    <% if shoe.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(shoe.errors.count, "error") %> prohibited this shoe from being saved:</h2>
+
+        <ul>
+        <% shoe.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field mdl-textfield mdl-textfield--full-width mdl-js-textfield mdl-textfield--floating-label">
+      <%= form.text_field :model, id: :shoe_model, class: 'mdl-textfield__input' %>
+      <%= form.label :model, class: 'mdl-textfield__label' %>
+    </div>
+
+    <div class="field mdl-textfield mdl-textfield--full-width mdl-js-textfield mdl-textfield--floating-label">
+      <%= form.text_field :brand, id: :shoe_brand, class: 'mdl-textfield__input' %>
+      <%= form.label :brand, class: 'mdl-textfield__label'%>
+    </div>
+
+    <div class="field mdl-textfield mdl-textfield--full-width mdl-js-textfield mdl-textfield--floating-label">
+      <%= form.text_field :isbn, id: :shoe_isbn, class: 'mdl-textfield__input' %>
+      <%= form.label :isbn, class: 'mdl-textfield__label'%>
+    </div>
+
+    <div class="field mdl-textfield mdl-textfield--full-width mdl-js-textfield mdl-textfield--floating-label">
+      <%= form.number_field :release_year, id: :shoe_release_year, class: 'mdl-textfield__input' %>
+      <%= form.label :release_year, class: 'mdl-textfield__label'%>
+    </div>
+
+    <div class="field mdl-textfield mdl-textfield--full-width mdl-js-textfield mdl-textfield--floating-label">
+      <%= form.number_field :sku, id: :shoe_sku, class: 'mdl-textfield__input' %>
+      <%= form.label :sku, class: 'mdl-textfield__label'%>
+    </div>
+
+    <div class="actions">
+      <%= form.submit class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :model %>
-    <%= form.text_field :model, id: :shoe_model %>
-  </div>
-
-  <div class="field">
-    <%= form.label :brand %>
-    <%= form.text_field :brand, id: :shoe_brand %>
-  </div>
-
-  <div class="field">
-    <%= form.label :isbn %>
-    <%= form.text_field :isbn, id: :shoe_isbn %>
-  </div>
-
-  <div class="field">
-    <%= form.label :release_year %>
-    <%= form.number_field :release_year, id: :shoe_release_year %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sku %>
-    <%= form.number_field :sku, id: :shoe_sku %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

@@ -1,6 +1,8 @@
-<h1>Editing Shoe</h1>
+<h1><%= I18n.t 'form.edit_shoe' %></h1>
 
 <%= render 'form', shoe: @shoe %>
 
-<%= link_to 'Show', @shoe %> |
-<%= link_to 'Back', shoes_path %>
+<div class="mdl-cell">
+  <%= link_to t('form.show_shoe'), @shoe, class: 'md-cell mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
+  <%= link_to t('form.backto_list'), shoes_path, class: 'md-cell mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
+</div>
