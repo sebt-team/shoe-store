@@ -11,7 +11,7 @@
     <% end %>
     
     <% I18n.with_options(scope: 'activerecord.attributes.shoe') do |i18n| %>
-    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
+    <table id="test_table" class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
       <thead>
         <tr>
           <th class="mdl-data-table__cell--non-numeric"><%= i18n.t :model %></th>
@@ -20,10 +20,9 @@
           <th class="mdl-data-table__cell--non-numeric"><%= i18n.t :release_year %></th>
           <th class="mdl-data-table__cell--non-numeric">SKU</th>
           <th class="mdl-data-table__cell--non-numeric"><%= i18n.t :photo %></th>
-          <th colspan="3"></th>
+          <th></th>
         </tr>
-      </thead>
-      
+      </thead>      
       <tbody>
         <% @shoes.each do |shoe| %>
         <tr>
@@ -33,14 +32,9 @@
           <td class="mdl-data-table__cell--non-numeric"><%= shoe.release_year %></td>
           <td class="mdl-data-table__cell--non-numeric"><%= shoe.sku %></td>
           <td class="mdl-data-table__cell--non-numeric"><%= image_tag(shoe.photo_url(:thumb).to_s) %></td>
-          
           <td class="mdl-data-table__cell--non-numeric">
             <%= link_to content_tag('i','visibility', class: 'material-icons'), shoe %>
-          </td>
-          <td class="mdl-data-table__cell--non-numeric">
             <%= link_to content_tag('i','edit', class: 'material-icons'), edit_shoe_path(shoe) %>
-          </td>
-          <td class="mdl-data-table__cell--non-numeric">
             <%= link_to content_tag('i','delete', class: 'material-icons'), shoe, method: :delete, data: { confirm: 'Are you sure?' } %>
           </td>
         </tr>
@@ -48,7 +42,5 @@
       </tbody>
     </table>
     <% end %>
-    
-    <br>
   </div>
 </div>
