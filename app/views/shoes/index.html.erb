@@ -1,49 +1,46 @@
-<div class="mdl-cell mdl-cell--12-col">
-  <p id="notice"><%= notice %></p>
-
-  <h3><%= I18n.t('activerecord.models.shoe') %></h3>
-
-  <%= link_to new_shoe_path, class: 'fab-action' do %>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--12-col">
+    <p id="notice"><%= notice %></p>
+    
+    <h3><%= I18n.t('activerecord.models.shoe') %></h3>
+    
+    <%= link_to new_shoe_path, class: 'fab-action' do %>
     <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
       <i class="material-icons">add</i>
     </button>
-  <% end %>
-
-  <% I18n.with_options(scope: 'activerecord.attributes.shoe') do |i18n| %>
-    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp full-width">
+    <% end %>
+    
+    <% I18n.with_options(scope: 'activerecord.attributes.shoe') do |i18n| %>
+    <table id="shoes_list_table" class="mdl-data-table" cellspacing="0" width="100%">
       <thead>
         <tr>
-          <th class="mdl-data-table__cell--non-numeric"><%= i18n.t :model %></th>
-          <th class="mdl-data-table__cell--non-numeric"><%= i18n.t :brand %></th>
-          <th class="mdl-data-table__cell--non-numeric">Isbn</th>
-          <th class="mdl-data-table__cell--non-numeric"><%= i18n.t :release_year %></th>
-          <th class="mdl-data-table__cell--non-numeric">SKU</th>
-          <th colspan="3"></th>
+          <th><%= i18n.t :model %></th>
+          <th><%= i18n.t :brand %></th>
+          <th>Isbn</th>
+          <th><%= i18n.t :release_year %></th>
+          <th>SKU</th>
+          <th><%= i18n.t :photo %></th>
+          <th>OPTIONS</th>
         </tr>
-      </thead>
-
+      </thead>      
       <tbody>
         <% @shoes.each do |shoe| %>
-          <tr>
-            <td class="mdl-data-table__cell--non-numeric"><%= shoe.model %></td>
-            <td class="mdl-data-table__cell--non-numeric"><%= shoe.brand %></td>
-            <td class="mdl-data-table__cell--non-numeric"><%= shoe.isbn %></td>
-            <td class="mdl-data-table__cell--non-numeric"><%= shoe.release_year %></td>
-            <td class="mdl-data-table__cell--non-numeric"><%= shoe.sku %></td>
-            <td class="mdl-data-table__cell--non-numeric">
-              <%= link_to content_tag('i','visibility', class: 'material-icons'), shoe %>
-            </td>
-            <td class="mdl-data-table__cell--non-numeric">
-              <%= link_to content_tag('i','edit', class: 'material-icons'), edit_shoe_path(shoe) %>
-            </td>
-            <td class="mdl-data-table__cell--non-numeric">
-              <%= link_to content_tag('i','delete', class: 'material-icons'), shoe, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </td>
-          </tr>
+        <tr>
+          <td><%= shoe.model %></td>
+          <td><%= shoe.brand.name %></td>
+          <td><%= shoe.isbn %></td>
+          <td><%= shoe.release_year %></td>
+          <td><%= shoe.sku %></td>
+          <td><%= image_tag(shoe.photo_url(:thumb).to_s) %></td>
+          <td>
+            <%= link_to content_tag('i','visibility', class: 'material-icons'), shoe %>
+            <%= link_to content_tag('i','edit', class: 'material-icons'), edit_shoe_path(shoe) %>
+            <%= link_to content_tag('i','delete', class: 'material-icons'), shoe, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
         <% end %>
       </tbody>
     </table>
-  <% end %>
-
-  <br>
+    <% end %>
+  </div>
 </div>
