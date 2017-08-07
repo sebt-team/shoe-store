@@ -11,7 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  * require_self
- *
+ *= require colors
  *= require theme
  *= require material_icons
  *= require 'material-design-lite/material.min.css'

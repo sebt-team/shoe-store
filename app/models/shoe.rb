@@ -5,4 +5,13 @@ class Shoe < ApplicationRecord
 	validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
 
 	belongs_to :brand
+
+  def self.search(search)
+    if search
+      where('model LIKE ?', "%#{search}%")
+      # find(:all, :conditions => ['model LIKE ?', "%#{search}%"])
+    else
+      all
+    end
+  end
 end

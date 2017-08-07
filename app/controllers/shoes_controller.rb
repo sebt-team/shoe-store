@@ -4,7 +4,9 @@ class ShoesController < ApplicationController
   # GET /shoes
   # GET /shoes.json
   def index
-    @shoes = Shoe.all
+    # @shoes = Shoe.all
+    @shoes = Shoe.search(params[:search])
+
   end
 
   # GET /shoes/1
