@@ -19,78 +19,92 @@ unless Shoe.exists?
     "#{rand.to_s[2..5]}-#{rand.to_s[2..3]}-#{rand.to_s[2..6]}-#{rand(9)}"
   end
 
-  Shoe.create([
-    {
-      model: 'All Star',
-      brand: 'Converse',
-      release_year: 1921,
-      sku: '25124',
-      isbn: risbn,
-      edition_date: (init_time = Date.parse('2015-01-01')),
-      created_at: rtime(now, init_time)
-    },
-    {
-      model: 'Air Force',
-      brand: 'Nike',
-      release_year: 1982,
-      sku: '82909',
-      isbn: risbn,
-      edition_date: (init_time = Date.parse('2016-01-01')),
-      created_at: rtime(now, init_time)
-    },
-    {
-      model: '574',
-      brand: 'New Balance',
-      release_year: 1988,
-      sku: '51936',
-      isbn: risbn,
-      edition_date: (init_time = Date.parse('2015-01-01')),
-      created_at: rtime(now, init_time)
-    },
-    {
-      model: 'Classic',
-      brand: 'Reebok',
-      release_year: 1983,
-      sku: '71150',
-      isbn: risbn,
-      edition_date: (init_time = Date.parse('2016-06-01')),
-      created_at: rtime(now, init_time)
-    },
-    {
-      model: 'Clyde',
-      brand: 'Puma',
-      release_year: 1972,
-      sku: '25434',
-      isbn: risbn,
-      edition_date: (init_time = Date.parse('2017-01-01')),
-      created_at: rtime(now, init_time)
-    },
-    {
-      model: 'Off The Wall',
-      brand: 'Vans',
-      release_year: 1976,
-      sku: '67235',
-      isbn: risbn,
-      edition_date: (init_time = Date.parse('2017-01-01')),
-      created_at: rtime(now, init_time)
-    },
-    {
-      model: 'Fader',
-      brand: 'Etnies',
-      release_year: 1992,
-      sku: '21224',
-      isbn: risbn,
-      edition_date: (init_time = Date.parse('2016-06-01')),
-      created_at: rtime(now, init_time)
-    },
-    {
-      model: 'Superstar',
-      brand: 'Adidas',
-      release_year: 1969,
-      sku: '13380',
-      isbn: risbn,
-      edition_date: (init_time = Date.parse('2017-01-01')),
-      created_at: rtime(now, init_time)
-    }
-  ])
+  ActiveRecord::Base.transaction do
+    
+    brands = Brand.create([
+      { name: 'Converse' },
+      { name: 'Nike'},
+      { name: 'New Balance'},
+      { name: 'Reebok'},
+      { name: 'Puma'},
+      { name: 'Vans'},
+      { name: 'Etnies'},
+      { name: 'Adidas'}
+    ])
+
+    Shoe.create([
+      {
+        model: 'All Star',
+        brand: brands[0], #'Converse'
+        release_year: 1921,
+        sku: '25124',
+        isbn: risbn,
+        edition_date: (init_time = Date.parse('2015-01-01')),
+        created_at: rtime(now, init_time)
+      },
+      {
+        model: 'Air Force',
+        brand: brands[1], #'Nike'
+        release_year: 1982,
+        sku: '82909',
+        isbn: risbn,
+        edition_date: (init_time = Date.parse('2016-01-01')),
+        created_at: rtime(now, init_time)
+      },
+      {
+        model: '574',
+        brand: brands[2], #New Balance'
+        release_year: 1988,
+        sku: '51936',
+        isbn: risbn,
+        edition_date: (init_time = Date.parse('2015-01-01')),
+        created_at: rtime(now, init_time)
+      },
+      {
+        model: 'Classic',
+        brand: brands[2], #'Reebok'
+        release_year: 1983,
+        sku: '71150',
+        isbn: risbn,
+        edition_date: (init_time = Date.parse('2016-06-01')),
+        created_at: rtime(now, init_time)
+      },
+      {
+        model: 'Clyde',
+        brand: brands[4], #'Puma'
+        release_year: 1972,
+        sku: '25434',
+        isbn: risbn,
+        edition_date: (init_time = Date.parse('2017-01-01')),
+        created_at: rtime(now, init_time)
+      },
+      {
+        model: 'Off The Wall',
+        brand: brands[5], #'Vans'
+        release_year: 1976,
+        sku: '67235',
+        isbn: risbn,
+        edition_date: (init_time = Date.parse('2017-01-01')),
+        created_at: rtime(now, init_time)
+      },
+      {
+        model: 'Fader',
+        brand: brands[6], #'Etnies'
+        release_year: 1992,
+        sku: '21224',
+        isbn: risbn,
+        edition_date: (init_time = Date.parse('2016-06-01')),
+        created_at: rtime(now, init_time)
+      },
+      {
+        model: 'Superstar',
+        brand: brands[7], #'Adidas'
+        release_year: 1969,
+        sku: '13380',
+        isbn: risbn,
+        edition_date: (init_time = Date.parse('2017-01-01')),
+        created_at: rtime(now, init_time)
+      }
+    ])
+  end
 end

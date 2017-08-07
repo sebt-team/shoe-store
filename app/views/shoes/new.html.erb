@@ -1,5 +1,11 @@
-<h1>New Shoe</h1>
-
-<%= render 'form', shoe: @shoe %>
-
-<%= link_to 'Back', shoes_path %>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--2-col">
+    <h5><%= "#{I18n.t('helpers.form.create')} #{I18n.t('activerecord.models.shoe')}" %></h5>
+    <%= render 'form', shoe: @shoe %>    
+  </div>    
+</div>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col">
+    <%= link_to 'Back', shoes_path %>
+  </div>    
+</div>

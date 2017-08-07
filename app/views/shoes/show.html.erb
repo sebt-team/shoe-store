@@ -1,29 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Model:</strong>
-  <%= @shoe.model %>
-</p>
-
-<p>
-  <strong>Brand:</strong>
-  <%= @shoe.brand %>
-</p>
-
-<p>
-  <strong>Isbn:</strong>
-  <%= @shoe.isbn %>
-</p>
-
-<p>
-  <strong>Release year:</strong>
-  <%= @shoe.release_year %>
-</p>
-
-<p>
-  <strong>Sku:</strong>
-  <%= @shoe.sku %>
-</p>
-
-<%= link_to 'Edit', edit_shoe_path(@shoe) %> |
-<%= link_to 'Back', shoes_path %>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--6-col">
+    <div class="mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h6 class="mdl-card__title-text">Shoe Details</h6>
+      </div>
+      <div class="mdl-card__supporting-text">
+        <%= attribute_shoe 'M', :model, @shoe.model %><br>
+        <%= attribute_shoe 'B', :brand, @shoe.brand.name %><br>
+        <%= attribute_shoe 'I', :isbn, @shoe.isbn %><br>
+        <%= attribute_shoe 'Y', :release_year, @shoe.release_year %><br>
+        <%= attribute_shoe 'S', :sku, @shoe.sku %><br>
+        <br><br>
+        <div class="shoes__show_photo"><!-- Ugly but faster -->
+          <%= image_tag(@shoe.photo_url.to_s, size: "200x200") %>  
+          <p class="shoes__photo_description"> <%= "#{@shoe.brand.name} - #{@shoe.model}" %></p>          
+        </div>
+      </div>
+    </div>  
+    <br>
+    <%= link_to 'Edit', edit_shoe_path(@shoe) %> | <%= link_to 'Back', shoes_path %>
+  </div>    
+</div>

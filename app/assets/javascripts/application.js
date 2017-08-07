@@ -11,5 +11,7 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require_tree .
 //= require material-design-lite/material.min.js
+//= require jquery/dist/jquery.min.js
+//= require datatables.net/js/jquery.dataTables
+//= require_tree .
